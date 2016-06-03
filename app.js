@@ -5,8 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+
+require('./models/Posts');
+require('./models/Comments');
+mongoose.connect('mongodb://192.168.99.100/news'); // must be before routes ( when we need them )
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+
+
 
 var app = express();
 
